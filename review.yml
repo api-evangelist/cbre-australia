@@ -1,0 +1,415 @@
+aid: cbre-australia
+name: CBRE Australia
+review:
+  question: >-
+    Does CBRE Australia expose a public, documented, machine-readable API surface —
+    and separately, does it carry any RESO posture?
+  answer: false
+  date: '2026-07-26'
+  reviewer: API Evangelist
+  homeMarket: Australia
+  tier: commercial-cre
+  primaryDomain: cbre.com.au
+  legalEntity: CBRE (Gwsla) Pty Ltd AU09949 (per cbre.com.au footer, fetched 2026-07-26)
+
+sectorBlock:
+  resoPosture:
+    summary: No RESO reference found — RESO is absent from CBRE Australia entirely.
+    certified: false
+    certificationType: none
+    dataDictionaryVersion: null
+    webApiCertification: none
+    upiUsage: none observed
+    directoryEvidence: >-
+      https://www.reso.org/certificates/ (RESO Certification Status, the public
+      certified-organizations listing) was fetched 2026-07-26, HTTP 200,
+      416,233 bytes of HTML / 98,179 characters of extracted text. A
+      case-insensitive scan of the extracted text found NO occurrence of "CBRE"
+      and NO occurrence of "Australia". https://www.reso.org/certification/
+      returned HTTP 200 and confirms RESO certification is scoped to MLS systems
+      (489 in the United States, 30+ in Canada, "a small but increasing number
+      in Central America, South America, Europe and West Asia") — Australia is
+      not named. https://certification.reso.org/ (the RESO Analytics live
+      certification directory app) returned HTTP 400 to anonymous requests and
+      could not be queried.
+    whyAbsent: >-
+      Australia has no MLS. RESO Web API and RESO Data Dictionary certification
+      are artifacts of the North American MLS system, mandated by NAR (an
+      industry body, not a government) and only meaningful where an MLS exists.
+      Australian residential listing distribution runs through a portal duopoly
+      (REA Group's realestate.com.au and Domain); commercial listings run through
+      realcommercial.com.au and agency sites. The closest thing Australia has to a
+      REQUIRED, national, machine-readable property rail is PEXA, the electronic
+      conveyancing network that is effectively mandated in most states — a
+      settlement rail, not a listing standard, and not something CBRE Australia
+      publishes an interface to.
+    metadataProbe: >-
+      https://www.cbre.com.au/$metadata was probed 2026-07-26 and returned HTTP
+      404 (the Sitecore "Error: Page Not Found (404)" page). No OData service
+      document, no $metadata document, no Reso/OData path exists on any CBRE
+      host reachable anonymously.
+
+  accessGate:
+    classification: none-published
+    whatADeveloperMustSignOrJoin: >-
+      Nothing is published, because there is nothing published to sign up for.
+      There is no developer registration form, no API application, no key
+      request, no partner API programme page, and no data licence offered to
+      developers anywhere on cbre.com.au. CBRE does operate API infrastructure,
+      but every reachable piece of it is either WAF-blocked (api.cbre.com,
+      Imperva/Incapsula 403 on all paths) or authenticated
+      (eipportal.cbre.com, an "Integration Platform - CBRE" React SPA that
+      renders a login shell). Obtaining CBRE Australia data is a commercial
+      client or partner engagement negotiated offline — an advisory or
+      property-management contract — not a developer onboarding flow. It is
+      correct to call this "none-published" rather than "partner-only", because
+      CBRE does not publish a partner API programme either.
+    scrapingProhibited: true
+    scrapingClauseVerbatim: >-
+      From CBRE's Terms of Use (https://www.cbre.com/about-us/disclaimer-terms-of-use,
+      fetched 2026-07-26, HTTP 200): users may not "engage in spamming, flooding,
+      harvesting of e-mail addresses or other personal information, spidering,
+      screen scraping, database scraping, or any other activity with the purpose
+      of obtaining lists of users or any other information, including
+      specifically, property listings available through the site". The phrase
+      "application programming interface" does not appear anywhere in the Terms
+      of Use (0 occurrences).
+    robotsEvidence: >-
+      https://www.cbre.com.au/robots.txt (HTTP 200, 2,143 bytes, fetched
+      2026-07-26) contains "Disallow: /api" and "Disallow: /sitecore/",
+      confirming an internal Sitecore-backed /api path that is explicitly closed
+      to crawlers and is not a published developer interface.
+
+  openData:
+    exists: false
+    note: >-
+      CBRE Australia publishes no open dataset. It is a private commercial firm;
+      its research and market outlooks are published as PDFs and web articles,
+      not as licensed-free machine-readable data. The Australian open-data
+      counterweight in this sector sits with government (state land registries,
+      several of which have been progressively privatised, plus data.gov.au) and
+      not with CBRE. No genuinely open, unlicensed, publicly callable CBRE
+      dataset was found.
+
+  authModel:
+    publishedScheme: none
+    oidcDiscovery: >-
+      https://api.cbre.com/.well-known/openid-configuration returned HTTP 403
+      (Imperva/Incapsula block page, 888 bytes) to an anonymous request on
+      2026-07-26. No OIDC discovery document is served anonymously.
+      https://api-dev.cbre.com/.well-known/openid-configuration returned HTTP 404
+      with a WSO2 JSON error body.
+    observedInfrastructure: >-
+      api-dev.cbre.com serves the stock WSO2 API Manager landing page
+      (<html xmlns="http://ws.apache.org/ns/synapse"><body><H1>Welcome to
+      APIM</H1>...), which identifies the gateway product but publishes no APIs.
+      eipportal.cbre.com is a Vite/React SPA titled "Integration Platform - CBRE"
+      whose manifest.json is still the unmodified Create React App sample. Neither
+      exposes an anonymous API catalogue, token endpoint, or documented auth flow.
+    conclusion: >-
+      No auth model can be recorded because no public API exists to authenticate
+      against. Any real scheme in use is internal to CBRE and its contracted
+      partners.
+
+  webhooksEventsSdksPostman:
+    webhooks: none found
+    events: none found
+    sdks: >-
+      None. github.com/CBRE exists (org id 8472144, created 2014-08-17) with 0
+      public repositories. Related orgs checked 2026-07-26: cbreenterprise (0),
+      CBRE-Shared-Code (0), cbre360 (0), cbreapac (0 — this is the Asia-Pacific
+      org that would cover Australia), CBRE-DevOps (0), CBREDigitalSpain (0).
+      cbreemea has 2 public repos, both forks of the third-party oauth2_proxy
+      project, not CBRE APIs or SDKs.
+    postman: none found
+    note: Absence of all four is itself the finding for this provider.
+
+  productApiFamily:
+    note: >-
+      CBRE Australia's service segmentation is taken verbatim from the live
+      cbre.com.au navigation (fetched 2026-07-26). NONE of these are exposed as
+      APIs; they are recorded so the sector study can see what a machine-readable
+      surface would have covered if one existed.
+    needs:
+    - Invest, Finance & Value (https://www.cbre.com.au/services/invest-finance-and-value)
+    - Plan, Lease & Occupy (https://www.cbre.com.au/services/plan-lease-and-occupy)
+    - Design & Build (https://www.cbre.com.au/services/design-and-build)
+    - Manage Properties & Portfolios (https://www.cbre.com.au/services/manage-properties-and-portfolios)
+    - Transform Business Outcomes (https://www.cbre.com.au/services/transform-business-outcomes)
+    propertyTypes:
+    - Office
+    - Retail
+    - Industrial & Logistics
+    - Build to Rent
+    - Alternatives
+    listingSurface: >-
+      https://www.cbre.com.au/properties — "Search CBRE's Commercial Property
+      Listings", HTTP 200, an HTML search UI for Properties for Sale and
+      Properties for Lease. No JSON feed, no documented query API, no download.
+
+findings:
+  summary: |
+    CBRE Australia has no public developer surface. Every candidate developer
+    hostname is NXDOMAIN, the one production API hostname that does resolve is
+    WAF-blocked to anonymous traffic, and the two reachable API-adjacent hosts
+    are a default vendor gateway page and a login-gated integration portal. No
+    OpenAPI, no Swagger, no OData $metadata, no WSDL of CBRE's own authorship, no
+    Postman collection, no SDK, no webhooks, no OIDC discovery, no security.txt.
+    RESO does not appear anywhere in CBRE's estate and does not appear in the
+    public RESO certification listing — which is the expected and honest result
+    for an Australian organization, since Australia has no MLS and therefore no
+    RESO ecosystem. This is a "built-stub": identity captured, API posture
+    captured, zero APIs listed because zero real APIs are published.
+  criticalDistinction: >-
+    Certification is not reachability, and in this case neither is present. CBRE
+    Australia is NOT a certified-but-closed provider (the RESO trap this study is
+    designed to catch) — it is simply closed, with no standards posture at all.
+    The distinction matters: a RESO-certified US brokerage at least speaks an open
+    standards language behind its licence gate. CBRE Australia speaks no published
+    standard and offers no gate to pass through.
+  crossCheckAgainstExistingRepo: >-
+    The pre-existing api-evangelist/cbre (global) profile claims a developer
+    portal at https://developer.cbre.com/ and a baseURL of https://api.cbre.com,
+    and lists a "CBRE Real Estate API". That claim does not hold up on probe:
+    developer.cbre.com returns NXDOMAIN (no A record, no CNAME) and api.cbre.com
+    returns an Imperva 403 to every path. This Australia profile deliberately
+    does NOT repeat that claim and lists zero APIs.
+
+probes:
+  fetchDate: '2026-07-26'
+  method: >-
+    Anonymous curl with a desktop browser user-agent, plus a text-extraction
+    reader proxy for hosts behind the Cloudflare interactive challenge. Every
+    status code below was observed directly.
+  hosts:
+  - url: https://www.cbre.com.au/
+    status: 403
+    note: Cloudflare "Just a moment..." interactive challenge to direct curl; content
+      retrieved via reader proxy (HTTP 200, 19,939 bytes) and confirmed as the live
+      CBRE Australia homepage.
+  - url: https://cbre.com.au/
+    status: 403
+    note: Same Cloudflare challenge.
+  - url: https://developer.cbre.com.au/
+    status: 000
+    note: DNS does not resolve (NXDOMAIN). No developer portal.
+  - url: https://developers.cbre.com.au/
+    status: 000
+    note: DNS does not resolve (NXDOMAIN).
+  - url: https://api.cbre.com.au/
+    status: 000
+    note: DNS does not resolve (NXDOMAIN). Australia has no CBRE API host.
+  - url: https://docs.cbre.com.au/
+    status: 000
+    note: DNS does not resolve (NXDOMAIN).
+  - url: https://www.cbre.com.au/developers
+    status: 403
+    note: Cloudflare challenge; no such path is linked anywhere in site navigation.
+  - url: https://www.cbre.com.au/api
+    status: 403
+    note: Cloudflare challenge. robots.txt explicitly disallows /api — internal Sitecore
+      path, not a published API.
+  - url: https://www.cbre.com.au/docs
+    status: 403
+    note: Cloudflare challenge.
+  - url: https://developer.cbre.com/
+    status: 000
+    note: NXDOMAIN — no A record, no CNAME. The global developer portal claimed by
+      third-party sources does not exist.
+  - url: https://developers.cbre.com/
+    status: 000
+    note: NXDOMAIN.
+  - url: https://api.cbre.com/
+    status: 403
+    note: Resolves to sqduhqb.ng.impervadns.net / 45.60.196.249. Imperva/Incapsula
+      block page (888 bytes) with incident ID. A real API host exists; it is not
+      anonymously reachable and publishes nothing.
+  - url: https://api.cbre.com/openapi.json
+    status: 403
+    note: Imperva block.
+  - url: https://api.cbre.com/swagger.json
+    status: 403
+    note: Imperva block.
+  - url: https://api.cbre.com/swagger
+    status: 403
+    note: Imperva block.
+  - url: https://api.cbre.com/api-docs
+    status: 403
+    note: Imperva block.
+  - url: https://api.cbre.com/$metadata
+    status: 403
+    note: Imperva block. No OData metadata document obtainable.
+  - url: https://api.cbre.com/.well-known/openid-configuration
+    status: 403
+    note: Imperva block. No anonymous OIDC discovery.
+  - url: https://api-prod.cbre.com/
+    status: 403
+    note: Imperva block.
+  - url: https://api-uat.cbre.com/
+    status: 000
+    note: Does not resolve.
+  - url: https://apim.cbre.com/
+    status: 000
+    note: Does not resolve.
+  - url: https://apis.cbre.com/
+    status: 000
+    note: Does not resolve.
+  - url: https://docs.cbre.com/
+    status: 000
+    note: Does not resolve.
+  - url: https://api-dev.cbre.com/
+    status: 200
+    note: 'Default WSO2 API Manager landing page, 142 bytes verbatim: <html xmlns="http://ws.apache.org/ns/synapse"><body><H1>Welcome
+      to APIM</H1><a href="/service" style="display: none">service</a></body></html>.
+      A development-tier gateway, not a developer portal.'
+  - url: https://api-dev.cbre.com/devportal
+    status: 404
+    note: WSO2 JSON 404. No developer portal deployed.
+  - url: https://api-dev.cbre.com/store
+    status: 404
+    note: WSO2 JSON 404. No API store deployed.
+  - url: https://api-dev.cbre.com/publisher
+    status: 404
+    note: WSO2 JSON 404.
+  - url: https://api-dev.cbre.com/swagger
+    status: 404
+    note: WSO2 JSON 404. No spec served.
+  - url: https://api-dev.cbre.com/api
+    status: 404
+    note: WSO2 JSON 404.
+  - url: https://api-dev.cbre.com/services
+    status: 200
+    note: 'Axis2 deployed-services page, 197 bytes: exactly one service, "Version",
+      with one operation getVersion.'
+  - url: https://api-dev.cbre.com/services/Version?wsdl
+    status: 200
+    note: >-
+      A real WSDL, 5,536 bytes, parses as XML. NOT SAVED to openapi/ and NOT
+      listed as a CBRE API, deliberately: its targetNamespace is
+      http://version.services.core.carbon.wso2.org, i.e. it is the stock WSO2
+      Carbon platform Version service present on every default WSO2 install. It
+      is vendor scaffolding, not a CBRE contract, and saving it would falsely
+      imply CBRE publishes a machine-readable interface.
+  - url: https://eipportal.cbre.com/
+    status: 200
+    note: React/Vite SPA, 973 bytes of shell, <title>Integration Platform - CBRE</title>.
+      Renders nothing without JavaScript and no anonymous API catalogue. manifest.json
+      (HTTP 200, 305 bytes) is the unmodified Create React App sample.
+  - url: https://eipportal.cbre.com/login
+    status: 200
+    note: Same SPA shell — client-side routed login. Authenticated, internal/partner
+      surface.
+  - url: https://mytrade-api-dev.cbre.ca/
+    status: 404
+    note: Redirects to /api then 404. Canadian development host, out of scope for
+      the Australian profile and serving nothing.
+  - url: https://www.cbre.com.au/robots.txt
+    status: 200
+    note: >-
+      Retrieved via reader proxy, 2,143 bytes. Contains the directives
+      "Disallow: /api" and "Disallow: /sitecore/". Points sitemaps at
+      cbre.com/sitemap.xml and cbre.com.au/sitemap.xml.
+  - url: https://www.cbre.com.au/.well-known/security.txt
+    status: 404
+    note: No security.txt, no vulnerability disclosure contact published on the Australian
+      domain.
+  - url: https://www.cbre.com.au/openapi.json
+    status: 404
+    note: Sitecore 404. No OpenAPI.
+  - url: https://www.cbre.com.au/swagger.json
+    status: 404
+    note: Sitecore 404. No Swagger.
+  - url: https://www.cbre.com.au/api-docs
+    status: 404
+    note: Sitecore soft-404 page.
+  - url: https://www.cbre.com.au/$metadata
+    status: 404
+    note: 'Sitecore "Error: Page Not Found (404)" page. No OData metadata document.'
+  - url: https://www.cbre.com.au/properties
+    status: 200
+    note: "\"Search CBRE's Commercial Property Listings\" — HTML search UI only, no\
+      \ feed, no documented query interface."
+  - url: https://www.cbre.com.au/about-us
+    status: 200
+    note: Retrieved via reader proxy, 17,111 bytes. Zero occurrences of "developer",
+      "/api", "api key", or "integration".
+  - url: https://www.cbre.com.au/services
+    status: 200
+    note: Retrieved via reader proxy, 19,017 bytes. The single occurrence of "developer"
+      is the real-estate sense ("real estate investors, developers and occupiers"),
+      not software.
+  - url: https://www.cbre.com/about-us/disclaimer-terms-of-use
+    status: 200
+    note: Terms of Use. Prohibits spidering / screen scraping / database scraping of
+      property listings. No mention of an API.
+  - url: https://www.reso.org/certification/
+    status: 200
+    note: RESO Certification and MLS Map. Confirms certification scope is MLS systems
+      in the US, Canada, and a small number elsewhere. Australia not mentioned.
+  - url: https://www.reso.org/certificates/
+    status: 200
+    note: RESO Certification Status listing, 416,233 bytes. No "CBRE", no "Australia"
+      in extracted text.
+  - url: https://certification.reso.org/
+    status: 400
+    note: RESO Analytics certification directory app rejects anonymous requests; could
+      not be queried directly.
+  - url: https://api.github.com/orgs/CBRE
+    status: 200
+    note: 0 public repositories. Checked alongside cbreapac (0), cbreenterprise (0),
+      CBRE-Shared-Code (0), cbre360 (0), CBRE-DevOps (0), CBREDigitalSpain (0), cbreemea
+      (2, both third-party oauth2_proxy forks).
+
+artifacts:
+  openapi: []
+  asyncapi: []
+  odataMetadata: []
+  postman: []
+  wsdl: []
+  count: 0
+  note: >-
+    openapi/ directory intentionally omitted — nothing real of CBRE's authorship
+    was found to put in it. The one machine-readable document retrieved
+    (api-dev.cbre.com WSO2 Version WSDL) is vendor default scaffolding and is
+    documented in probes[] rather than stored as a CBRE artifact.
+
+marketSeamContext:
+  note: >-
+    Recorded as sector background only. No CBRE integration with any of these is
+    claimed or evidenced.
+  observations:
+  - >-
+    Australian residential listing distribution is a portal duopoly — REA Group's
+    realestate.com.au and Domain — sitting over state-by-state land registries
+    that have been progressively privatised. Commercial listings, CBRE's segment,
+    flow through realcommercial.com.au (REA Group) and agency websites.
+  - >-
+    PEXA, the electronic conveyancing network, is effectively mandated in most
+    Australian states and settles the overwhelming majority of property
+    transactions. https://www.pexa.com.au/ (HTTP 200) and
+    https://developer.pexa.com.au/ (HTTP 200) were probed on 2026-07-26 and a
+    PEXA developer host does resolve and respond — the strongest evidence in the
+    Australian market that a required, national, machine-readable property rail
+    exists. It sits at the settlement layer, not the listing layer, and it is not
+    CBRE's.
+  - >-
+    Valuation data in Australia concentrates in PropTrack (REA-owned) and
+    CoreLogic. CBRE Australia performs valuation and advisory as a service
+    engagement; it does not publish an AVM API.
+
+conclusion:
+  status: built-stub
+  apisListed: 0
+  portalConfirmed: false
+  openApiHarvested: false
+  specsCount: 0
+  resoCertified: false
+  accessGate: none-published
+  openData: false
+  gated: true
+  reason: >-
+    Identity captured from live sources; API posture captured honestly as absent.
+    No public developer portal exists, no machine-readable contract of CBRE's
+    authorship was retrievable, and RESO is entirely absent — the correct answer
+    for an Australian commercial real estate services firm operating in a market
+    that has no MLS.

@@ -1,0 +1,78 @@
+aid: cbre-australia
+url: https://raw.githubusercontent.com/api-evangelist/cbre-australia/refs/heads/main/apis.yml
+name: CBRE Australia
+kind: company
+description: >-
+  CBRE Australia is the Australian arm of CBRE Group, the global commercial real
+  estate services and investment firm, trading locally as CBRE (Gwsla) Pty Ltd
+  (AU09949) and operating across the Pacific from cbre.com.au. It sits on the
+  advisory and management side of the Australian property value chain rather
+  than the data-infrastructure side: capital markets and investment sales,
+  leasing and occupier advisory, valuation and advisory services, property and
+  asset management, and project and design-and-build delivery across office,
+  retail, industrial and logistics, build-to-rent, and alternative asset classes.
+  Its API posture is closed. As of 26 July 2026 no public developer portal, API
+  documentation, machine-readable contract, or self-serve onboarding exists for
+  CBRE Australia: developer.cbre.com.au, developers.cbre.com.au, api.cbre.com.au,
+  and docs.cbre.com.au do not resolve, and the global developer.cbre.com host is
+  NXDOMAIN as well. CBRE does run API infrastructure — api.cbre.com sits behind an
+  Imperva WAF that returns 403 to every anonymous request, api-dev.cbre.com serves
+  a default WSO2 API Manager landing page, and eipportal.cbre.com is a
+  login-gated "Integration Platform" SPA — but none of it is published, catalogued,
+  or reachable by an outside developer. Commercial listings are distributed through
+  the cbre.com.au property search and Australia's portal duopoly, and CBRE's terms
+  of use explicitly prohibit scraping property listings from the site. RESO is
+  absent entirely, which is the honest answer for Australia: there is no MLS here,
+  no RESO-certified Australian organization, and the country's mandated
+  machine-readable property rail is PEXA's electronic conveyancing network, not a
+  RESO Web API. Access to CBRE data in Australia is a client or partner
+  relationship, not a developer signup.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/cbre.png
+tags:
+- Real Estate
+- Australia
+- Commercial Real Estate
+- Property Listings
+- Valuation
+- Property Management
+- Capital Markets
+- PropTech
+- Leasing
+created: '2026-07-26'
+modified: '2026-07-26'
+specificationVersion: '0.19'
+apis: []
+common:
+- type: Website
+  url: https://www.cbre.com.au/
+- type: About
+  url: https://www.cbre.com.au/about-us
+- type: Services
+  url: https://www.cbre.com.au/services
+- type: PropertySearch
+  url: https://www.cbre.com.au/properties
+- type: TermsOfService
+  url: https://www.cbre.com/about-us/disclaimer-terms-of-use
+- type: PrivacyPolicy
+  url: https://www.cbre.com.au/about-us/pacific-privacy-notice
+- type: Privacy
+  url: https://www.cbre.com.au/about-us/protecting-your-data-at-cbre
+- type: ResponsibleAI
+  url: https://www.cbre.com.au/about-us/responsible-ai-at-cbre
+- type: Newsroom
+  url: https://www.cbre.com.au/about-us/newsroom
+- type: InvestorRelations
+  url: https://ir.cbre.com/investor-relations-home/default.aspx
+- type: LinkedIn
+  url: https://www.linkedin.com/company/cbre-asia-pacific
+- type: Twitter
+  url: https://twitter.com/cbre
+- type: Facebook
+  url: https://www.facebook.com/cbre
+- type: GitHubOrganization
+  url: https://github.com/CBRE
+- type: Review
+  url: review.yml
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
