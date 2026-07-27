@@ -43,6 +43,14 @@ modified: '2026-07-26'
 specificationVersion: '0.19'
 apis: []
 common:
+- type: DomainSecurity
+  url: security/cbre-australia-domain-security.yml
+- type: VulnerabilityDisclosure
+  url: security/cbre-australia-vulnerability-disclosure.yml
+- type: Security
+  url: https://www.cbre.com/about-us/corporate-responsibility/vulnerability-disclosure
+- type: LLMsTxt
+  url: llms/cbre-australia-llms.txt
 - type: Website
   url: https://www.cbre.com.au/
 - type: About
@@ -61,6 +69,14 @@ common:
   url: https://www.cbre.com.au/about-us/responsible-ai-at-cbre
 - type: Newsroom
   url: https://www.cbre.com.au/about-us/newsroom
+- type: Blog
+  url: https://www.cbre.com.au/insights
+- type: Research
+  url: https://www.cbre.com.au/insights
+- type: Support
+  url: https://www.cbre.com.au/about-us/culture-and-history/contact-us
+- type: Careers
+  url: https://www.cbre.com.au/careers
 - type: InvestorRelations
   url: https://ir.cbre.com/investor-relations-home/default.aspx
 - type: LinkedIn

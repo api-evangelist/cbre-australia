@@ -1,0 +1,60 @@
+generated: '2026-07-26'
+method: probed
+source: live probes of the CBRE Australia and CBRE Group web hosts
+found: 0
+note: >-
+  No /.well-known/ discovery document is published on any CBRE host reachable
+  anonymously. Direct curl to www.cbre.com.au and www.cbre.com returns the
+  Cloudflare interactive challenge (HTTP 403), so every path below was re-probed
+  through a text-extraction reader proxy that resolves the real origin status;
+  each returned the Sitecore 404 page. api.cbre.com is behind an Imperva WAF that
+  answers 403 to every anonymous path, so its /.well-known/ surface cannot be
+  observed at all. No raw documents were saved because none exist — this file is
+  the negative-result record so future rounds do not re-litigate it. No
+  `WellKnown`, `SecurityTxt`, or `APICatalog` pointer is wired in apis.yml,
+  because no document was found.
+hosts:
+- host: https://www.cbre.com.au
+  reachable_anonymously: false
+  gate: Cloudflare interactive challenge (403) to direct requests
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /llms.txt
+    status: 404
+- host: https://www.cbre.com
+  reachable_anonymously: false
+  gate: Cloudflare interactive challenge (403) to direct requests
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /llms.txt
+    status: 404
+- host: https://api.cbre.com
+  reachable_anonymously: false
+  gate: Imperva/Incapsula WAF block page (403) on every path
+  documents:
+  - path: /.well-known/openid-configuration
+    status: 403
+    note: WAF block, not an origin response. No anonymous OIDC discovery.
+  - path: /openapi.json
+    status: 403
+  - path: /swagger.json
+    status: 403
+- host: https://api.cbre.com.au
+  reachable_anonymously: false
+  gate: NXDOMAIN — the host does not resolve
+  documents: []
+disclosure_note: >-
+  CBRE does publish a vulnerability disclosure policy, but as an HTML page and a
+  HackerOne program rather than as an RFC 9116 security.txt. It is captured in
+  security/cbre-australia-vulnerability-disclosure.yml.
+fetched: '2026-07-26'

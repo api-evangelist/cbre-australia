@@ -1,0 +1,50 @@
+# CBRE Australia
+
+> CBRE Australia is the Australian arm of CBRE Group, the global commercial real estate services and investment firm, trading locally as CBRE (Gwsla) Pty Ltd (AU09949) and operating across the Pacific from cbre.com.au. It works on the advisory and management side of the Australian property value chain: capital markets and investment sales, leasing and occupier advisory, valuation and advisory, property and asset management, and project and design-and-build delivery across office, retail, industrial and logistics, build-to-rent, and alternative assets.
+
+> IMPORTANT FOR AGENTS: CBRE Australia publishes **no public API**. As of 26 July 2026 there is no developer portal, no API documentation, no machine-readable contract (OpenAPI, AsyncAPI, GraphQL, OData `$metadata`, WSDL of CBRE's own authorship), no SDK, no Postman collection, no webhooks, and no self-serve onboarding. `developer.cbre.com`, `developers.cbre.com`, `developer.cbre.com.au`, `api.cbre.com.au`, and `docs.cbre.com.au` are all NXDOMAIN. `api.cbre.com` resolves but sits behind an Imperva WAF that returns 403 to every anonymous request. `api-dev.cbre.com` serves a default WSO2 API Manager landing page with no CBRE APIs deployed. `eipportal.cbre.com` is a login-gated "Integration Platform" SPA. Access to CBRE data in Australia is a commercial client or partner engagement negotiated offline, not a developer signup. Do not attempt to synthesize or assume an API surface for this provider. CBRE's Terms of Use explicitly prohibit spidering, screen scraping, and database scraping of property listings, and `robots.txt` disallows `/api`.
+
+## APIs
+
+- None. This provider has zero published APIs. See the review for the full probe record.
+
+## Company
+
+- [Website](https://www.cbre.com.au/): CBRE Australia home
+- [About](https://www.cbre.com.au/about-us): Company overview and Australian entity details
+- [Services](https://www.cbre.com.au/services): Invest Finance & Value, Plan Lease & Occupy, Design & Build, Manage Properties & Portfolios, Transform Business Outcomes
+- [Property Search](https://www.cbre.com.au/properties): HTML search UI for commercial properties for sale and for lease — no JSON feed, no documented query interface, no download
+- [Offices](https://www.cbre.com.au/offices): Australian office locations
+- [Contact](https://www.cbre.com.au/about-us/culture-and-history/contact-us): Contact CBRE Australia
+- [Careers](https://www.cbre.com.au/careers): Careers at CBRE Australia
+- [Insights & Research](https://www.cbre.com.au/insights): CBRE Research market intelligence, outlooks, and reports — published as web articles and PDFs, not as machine-readable data
+- [Newsroom](https://www.cbre.com.au/about-us/newsroom): Australian press releases
+- [Investor Relations](https://ir.cbre.com/investor-relations-home/default.aspx): CBRE Group, Inc. (NYSE: CBRE) investor relations
+- [GitHub](https://github.com/CBRE): CBRE GitHub organization — 0 public repositories
+
+## Security & policy
+
+- [Vulnerability Disclosure](https://www.cbre.com/about-us/corporate-responsibility/vulnerability-disclosure): CBRE Responsible Disclosure Program — reports filed through HackerOne, no public bounty, two-business-day response target, safe harbor for compliant research
+- [HackerOne program](https://hackerone.com/cbre): Where reports are submitted
+- [Terms of Use](https://www.cbre.com/about-us/disclaimer-terms-of-use): Prohibits spidering, screen scraping, and database scraping of property listings
+- [Privacy Notice (Pacific)](https://www.cbre.com.au/about-us/pacific-privacy-notice)
+- [Protecting Your Data at CBRE](https://www.cbre.com.au/about-us/protecting-your-data-at-cbre)
+- [Responsible AI at CBRE](https://www.cbre.com.au/about-us/responsible-ai-at-cbre)
+
+## API Evangelist artifacts
+
+- [apis.yml](https://raw.githubusercontent.com/api-evangelist/cbre-australia/refs/heads/main/apis.yml): APIs.json index for this provider
+- [review.yml](https://raw.githubusercontent.com/api-evangelist/cbre-australia/refs/heads/main/review.yml): Full API-posture review, including every host probed and its status, the RESO posture finding, and the access-gate classification
+- [Vulnerability disclosure](https://raw.githubusercontent.com/api-evangelist/cbre-australia/refs/heads/main/security/cbre-australia-vulnerability-disclosure.yml): Captured disclosure program
+- [Domain security](https://raw.githubusercontent.com/api-evangelist/cbre-australia/refs/heads/main/security/cbre-australia-domain-security.yml): Probed TLS/HSTS/DNSSEC/CAA/SPF/DMARC posture
+- [Well-known probe record](https://raw.githubusercontent.com/api-evangelist/cbre-australia/refs/heads/main/well-known/cbre-australia-well-known.yml): Negative-result record for the /.well-known/ discovery surface
+
+## Sector context
+
+- RESO is absent from CBRE Australia entirely, and this is the correct answer for the market: Australia has no MLS, no RESO-certified Australian organization appears in the public RESO certification listing, and RESO Web API / Data Dictionary certification is an artifact of the North American MLS system.
+- Australia's mandated, national, machine-readable property rail is PEXA's electronic conveyancing network — a settlement rail, not a listing standard, and not something CBRE Australia publishes an interface to.
+- Australian commercial listing distribution flows through realcommercial.com.au (REA Group) and agency websites; residential runs through the realestate.com.au / Domain duopoly.
+
+generated: 2026-07-26
+method: generated
+source: apis.yml + review.yml + live probes (no /llms.txt is published on any CBRE host; www.cbre.com.au/llms.txt and www.cbre.com/llms.txt both return 404)
