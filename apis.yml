@@ -27,6 +27,17 @@ description: >-
   machine-readable property rail is PEXA's electronic conveyancing network, not a
   RESO Web API. Access to CBRE data in Australia is a client or partner
   relationship, not a developer signup.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/cbre.png
 tags:
 - Real-Estate
